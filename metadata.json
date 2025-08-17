@@ -1,0 +1,8 @@
+{
+  "name": "Appetite Away",
+  "description": "A comprehensive food delivery platform with dedicated applications for customers, restaurants, and riders. It simplifies ordering, streamlines restaurant management, and empowers riders with flexible work.",
+  "requestFramePermissions": [
+    "geolocation"
+  ],
+  "prompt": ""
+}
