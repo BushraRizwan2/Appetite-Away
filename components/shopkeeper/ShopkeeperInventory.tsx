@@ -6,29 +6,7 @@ import Switch from '../shared/Switch';
 import Modal from '../shared/Modal';
 import Input from '../shared/Input';
 import TabFilter from '../shared/TabFilter';
-
-const MOCK_INVENTORY: MenuItem[] = [
-    { id: 'inv1', name: 'Fresh Milk 1L', description: 'Full cream dairy milk.', price: 220, category: 'Dairy & Eggs', inStock: true, imageUrl: 'https://images.pexels.com/photos/248412/pexels-photo-248412.jpeg?auto=compress&cs=tinysrgb&w=400', stockLevel: 50 },
-    { id: 'inv2', name: 'Brown Bread', description: 'Whole wheat bread loaf.', price: 150, category: 'Bakery', inStock: true, imageUrl: 'https://images.pexels.com/photos/1775043/pexels-photo-1775043.jpeg?auto=compress&cs=tinysrgb&w=400', stockLevel: 30 },
-    { id: 'inv3', name: 'Organic Eggs (Dozen)', description: 'Farm fresh organic eggs.', price: 350, category: 'Dairy & Eggs', inStock: false, imageUrl: 'https://images.pexels.com/photos/162712/egg-white-food-protein-162712.jpeg?auto=compress&cs=tinysrgb&w=400', stockLevel: 0 },
-    { id: 'inv4', name: 'Potato Chips - Salty', description: 'Classic salted potato chips.', price: 100, category: 'Snacks', inStock: true, imageUrl: 'https://images.pexels.com/photos/3793238/pexels-photo-3793238.jpeg?auto=compress&cs=tinysrgb&w=400', stockLevel: 120 },
-    { id: 'inv5', name: 'Cola 1.5L', description: 'Chilled carbonated soft drink.', price: 180, category: 'Beverages', inStock: true, imageUrl: 'https://images.pexels.com/photos/1571849/pexels-photo-1571849.jpeg?auto=compress&cs=tinysrgb&w=400', stockLevel: 80 },
-    { id: 'inv6', name: 'Apples (1kg)', description: 'Fresh red apples.', price: 300, category: 'Fruits & Vegetables', inStock: true, imageUrl: 'https://images.pexels.com/photos/102104/pexels-photo-102104.jpeg?auto=compress&cs=tinysrgb&w=400', stockLevel: 25 },
-    { id: 'inv7', name: 'Basmati Rice 5kg', description: 'Premium quality basmati rice.', price: 1800, category: 'Pantry', inStock: true, imageUrl: 'https://images.pexels.com/photos/1547843/pexels-photo-1547843.jpeg?auto=compress&cs=tinysrgb&w=400', stockLevel: 40 },
-    { id: 'inv8', name: 'Cooking Oil 1L', description: 'Vegetable cooking oil.', price: 550, category: 'Pantry', inStock: true, imageUrl: 'https://images.pexels.com/photos/33783/olive-oil-salad-dressing-cooking-olive.jpg?auto=compress&cs=tinysrgb&w=400', stockLevel: 60 },
-    { id: 'inv9', name: 'Yogurt 500g', description: 'Natural plain yogurt.', price: 160, category: 'Dairy & Eggs', inStock: true, imageUrl: 'https://images.pexels.com/photos/4033233/pexels-photo-4033233.jpeg?auto=compress&cs=tinysrgb&w=400', stockLevel: 35 },
-    { id: 'inv10', name: 'Lentils (Daal) 1kg', description: 'Red split lentils.', price: 280, category: 'Pantry', inStock: true, imageUrl: 'https://images.pexels.com/photos/13019313/pexels-photo-13019313.jpeg?auto=compress&cs=tinysrgb&w=400', stockLevel: 100 },
-    { id: 'inv11', name: 'Tomatoes (1kg)', description: 'Fresh, ripe tomatoes.', price: 120, category: 'Fruits & Vegetables', inStock: true, imageUrl: 'https://images.pexels.com/photos/533280/pexels-photo-533280.jpeg?auto=compress&cs=tinysrgb&w=400', stockLevel: 45 },
-    { id: 'inv12', name: 'Onions (1kg)', description: 'Fresh red onions.', price: 100, category: 'Fruits & Vegetables', inStock: true, imageUrl: 'https://images.pexels.com/photos/144234/onions-kitchen-bio-food-144234.jpeg?auto=compress&cs=tinysrgb&w=400', stockLevel: 5 },
-    { id: 'inv13', name: 'Chocolate Bar', description: 'Dairy milk chocolate.', price: 150, category: 'Snacks', inStock: true, imageUrl: 'https://images.pexels.com/photos/4113941/pexels-photo-4113941.jpeg?auto=compress&cs=tinysrgb&w=400', stockLevel: 200 },
-    { id: 'inv14', name: 'Instant Noodles', description: 'Chicken flavor instant noodles.', price: 90, category: 'Pantry', inStock: true, imageUrl: 'https://images.pexels.com/photos/209506/pexels-photo-209506.jpeg?auto=compress&cs=tinysrgb&w=400', stockLevel: 150 },
-    { id: 'inv15', name: 'Green Tea (25 bags)', description: 'Jasmine green tea bags.', price: 450, category: 'Beverages', inStock: true, imageUrl: 'https://images.pexels.com/photos/414630/pexels-photo-414630.jpeg?auto=compress&cs=tinysrgb&w=400', stockLevel: 2 },
-    { id: 'inv16', name: 'Cheese Slices (10 pack)', description: 'Processed cheddar cheese slices.', price: 400, category: 'Dairy & Eggs', inStock: true, imageUrl: 'https://images.pexels.com/photos/3642633/pexels-photo-3642633.jpeg?auto=compress&cs=tinysrgb&w=400', stockLevel: 28 },
-    { id: 'inv17', name: 'Washing Powder 1kg', description: 'Detergent powder for clothes.', price: 380, category: 'Household', inStock: true, imageUrl: 'https://images.pexels.com/photos/7747514/pexels-photo-7747514.jpeg?auto=compress&cs=tinysrgb&w=400', stockLevel: 40 },
-    { id: 'inv18', name: 'Bananas (dozen)', description: 'Fresh, ripe bananas.', price: 180, category: 'Fruits & Vegetables', inStock: true, imageUrl: 'https://images.pexels.com/photos/5966439/pexels-photo-5966439.jpeg?auto=compress&cs=tinysrgb&w=400', stockLevel: 40 },
-    { id: 'inv19', name: 'Biscuits - Cream', description: 'Cream filled biscuits pack.', price: 120, category: 'Snacks', inStock: true, imageUrl: 'https://images.pexels.com/photos/4846437/pexels-photo-4846437.jpeg?auto=compress&cs=tinysrgb&w=400', stockLevel: 90 },
-    { id: 'inv20', name: 'Water 1.5L', description: 'Mineral water bottle.', price: 80, category: 'Beverages', inStock: true, imageUrl: 'https://images.pexels.com/photos/327090/pexels-photo-327090.jpeg?auto=compress&cs=tinysrgb&w=400', stockLevel: 300 },
-];
+import { MOCK_INVENTORY } from '../../data/mockData';
 
 const ProductItemModal: React.FC<{ item: Partial<MenuItem> | null, onClose: () => void, onSave: (item: MenuItem) => void }> = ({ item, onClose, onSave }) => {
     const [formData, setFormData] = useState<Partial<MenuItem>>(item || { inStock: true });

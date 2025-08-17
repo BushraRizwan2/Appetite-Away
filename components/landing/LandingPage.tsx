@@ -8,7 +8,7 @@ import DownloadAppSection from './DownloadAppSection';
 import Footer from '../shared/Footer';
 import { UserRole } from '../../types';
 import Button from '../shared/Button';
-import { getMockRestaurants } from '../customer/CustomerDashboard';
+import { getMockRestaurants } from '../../data/mockData';
 import RestaurantCard from '../customer/RestaurantCard';
 import FaqSection from './FaqSection';
 

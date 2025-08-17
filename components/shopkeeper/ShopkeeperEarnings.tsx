@@ -1,26 +1,13 @@
 import React, { useState, useMemo } from 'react';
 import { ICONS } from '../../constants';
-import { Transaction, CartItem } from '../../types';
+import { Transaction } from '../../types';
 import Button from '../shared/Button';
 import WithdrawalModal from './WithdrawalModal';
 import { useNotification } from '../../context/NotificationContext';
 import TransactionDetailsModal from './TransactionDetailsModal';
 import BankDetailsModal from './BankDetailsModal';
 import CustomSelect from '../shared/CustomSelect';
-
-const MOCK_ITEMS: CartItem[] = [
-    { cartItemId: 'si-1', id: 'milk', name: 'Milk 1L', description: '', price: 220, quantity: 2, imageUrl: '', inStock: true, category: 'Dairy' },
-    { cartItemId: 'si-2', id: 'bread', name: 'Brown Bread', description: '', price: 150, quantity: 1, imageUrl: '', inStock: true, category: 'Bakery' },
-    { cartItemId: 'si-3', id: 'chips', name: 'Potato Chips', description: '', price: 100, quantity: 3, imageUrl: '', inStock: true, category: 'Snacks' },
-];
-
-const MOCK_TRANSACTIONS: Transaction[] = [
-    { id: 'TR-S101', orderId: 'S-101', date: '2024-05-22', customerName: 'Ayesha K.', amount: 650, method: 'Card', status: 'Completed', breakdown: { subtotal: 590, platformFee: 41.3, tax: 18.7, netPayout: 590 }, items: MOCK_ITEMS.slice(0,2) },
-    { id: 'TR-S102', orderId: 'S-102', date: '2024-05-22', customerName: 'Bilal M.', amount: 540, method: 'COD', status: 'Pending', breakdown: { subtotal: 480, platformFee: 33.6, tax: 16.4, netPayout: 480 }, items: MOCK_ITEMS.slice(2) },
-    { id: 'TR-S103', orderId: 'S-103', date: '2024-05-22', customerName: 'Sana J.', amount: 360, method: 'Card', status: 'Completed', breakdown: { subtotal: 300, platformFee: 21, tax: 9, netPayout: 300 }, items: [] },
-    { id: 'TR-S099', orderId: 'S-099', date: '2024-05-21', customerName: 'Imran H.', amount: 1200, method: 'Card', status: 'Completed', breakdown: { subtotal: 1100, platformFee: 77, tax: 23, netPayout: 1100 }, items: [] },
-    { id: 'TR-S098', orderId: 'S-098', date: '2024-05-21', customerName: 'Farida B.', amount: 450, method: 'COD', status: 'Failed', breakdown: { subtotal: 400, platformFee: 28, tax: 12, netPayout: 0 }, items: [] },
-];
+import { MOCK_TRANSACTIONS } from '../../data/mockData';
 
 const SummaryCard: React.FC<{ title: string; value: string; icon: React.ReactNode }> = ({ title, value, icon }) => (
     <div className="p-4 bg-white dark:bg-slate-800 rounded-lg shadow-sm flex items-start gap-4">

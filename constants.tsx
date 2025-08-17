@@ -30,30 +30,6 @@ export const DEMO_USERS = {
   }
 };
 
-export const MOCK_CHEFS: Chef[] = [
-    { id: 'chef-1', name: 'Aamir Khan', avatarUrl: 'https://i.pravatar.cc/150?u=aamir' },
-    { id: 'chef-2', name: 'Basit Ali', avatarUrl: 'https://i.pravatar.cc/150?u=basit' },
-    { id: 'chef-3', name: 'Beenish Pervaiz', avatarUrl: 'https://i.pravatar.cc/150?u=beenish' },
-    { id: 'chef-4', name: 'Dawood Ibrahim', avatarUrl: 'https://i.pravatar.cc/150?u=dawood' },
-    { id: 'chef-5', name: 'Esha Khan', avatarUrl: 'https://i.pravatar.cc/150?u=esha' },
-    { id: 'chef-6', name: 'Farhan Saeed', avatarUrl: 'https://i.pravatar.cc/150?u=farhan' },
-    { id: 'chef-7', name: 'Ghazala Bibi', avatarUrl: 'https://i.pravatar.cc/150?u=ghazala' },
-    { id: 'chef-8', name: 'Hassan Raza', avatarUrl: 'https://i.pravatar.cc/150?u=hassan' },
-    { id: 'chef-9', name: 'Iqra Aziz', avatarUrl: 'https://i.pravatar.cc/150?u=iqra' },
-    { id: 'chef-10', name: 'Javed Miandad', avatarUrl: 'https://i.pravatar.cc/150?u=javed' },
-    { id: 'chef-11', name: 'Kamran Akmal', avatarUrl: 'https://i.pravatar.cc/150?u=kamran' },
-    { id: 'chef-12', name: 'Lubna Faryad', avatarUrl: 'https://i.pravatar.cc/150?u=lubna' },
-    { id: 'chef-13', name: 'Mohsin Abbas', avatarUrl: 'https://i.pravatar.cc/150?u=mohsin' },
-    { id: 'chef-14', name: 'Nida Yasir', avatarUrl: 'https://i.pravatar.cc/150?u=nida' },
-    { id: 'chef-15', name: 'Osman Khalid', avatarUrl: 'https://i.pravatar.cc/150?u=osman' },
-    { id: 'chef-16', name: 'Parveen Shakir', avatarUrl: 'https://i.pravatar.cc/150?u=parveen' },
-    { id: 'chef-17', name: 'Qasim Ali Shah', avatarUrl: 'https://i.pravatar.cc/150?u=qasim' },
-    { id: 'chef-18', name: 'Rahat Fateh Ali', avatarUrl: 'https://i.pravatar.cc/150?u=rahat' },
-    { id: 'chef-19', name: 'Saba Qamar', avatarUrl: 'https://i.pravatar.cc/150?u=saba' },
-    { id: 'chef-20', name: 'Tariq Aziz', avatarUrl: 'https://i.pravatar.cc/150?u=tariq' },
-];
-
-
 export const ICONS = {
     home: <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>,
     orders: <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002-2h2a2 2 0 002 2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" /></svg>,

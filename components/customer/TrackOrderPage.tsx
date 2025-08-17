@@ -1,7 +1,7 @@
 
 import React, { useState, useMemo } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { getMockOrderById } from './CustomerOrders';
+import { getMockOrderById } from '../../data/mockData';
 import { OrderStatus } from '../../types';
 import Button from '../shared/Button';
 import { ICONS } from '../../constants';

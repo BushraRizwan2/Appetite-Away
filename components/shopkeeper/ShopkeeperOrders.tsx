@@ -3,57 +3,7 @@ import React, { useState } from 'react';
 import { Order, OrderStatus } from '../../types';
 import ShopOrderCard from './ShopOrderCard';
 import TabFilter from '../shared/TabFilter';
-
-const MOCK_SHOP_ORDERS: Order[] = [
-    {
-        id: 'S-101',
-        customerId: 'cust-ayesha-k',
-        customerName: 'Ayesha K.',
-        restaurantName: 'The Corner Store',
-        items: [
-            { cartItemId: 'si-1', id: 'milk', name: 'Milk 1L', description: '', price: 220, quantity: 2, imageUrl: 'https://placehold.co/100x100/fef2f2/ef4444?text=Milk', inStock: true, category: 'Dairy' },
-            { cartItemId: 'si-2', id: 'bread', name: 'Brown Bread', description: '', price: 150, quantity: 1, imageUrl: 'https://placehold.co/100x100/fef2f2/ef4444?text=Bread', inStock: true, category: 'Bakery' },
-        ],
-        status: OrderStatus.Incoming,
-        date: '2024-05-22',
-        deliveryAddress: '123 Oak Ave',
-        restaurantAddress: 'Shop 4, Market St',
-        estimatedArrival: '15-20 min',
-        bill: { subtotal: 590, deliveryFee: 50, serviceFee: 10, discount: 0, total: 650 },
-    },
-    {
-        id: 'S-102',
-        customerId: 'cust-bilal-m',
-        customerName: 'Bilal M.',
-        restaurantName: 'The Corner Store',
-        items: [
-            { cartItemId: 'si-3', id: 'chips', name: 'Potato Chips', description: '', price: 100, quantity: 3, imageUrl: 'https://placehold.co/100x100/fef2f2/ef4444?text=Chips', inStock: true, category: 'Snacks' },
-            { cartItemId: 'si-4', id: 'cola', name: 'Cola 1.5L', description: '', price: 180, quantity: 1, imageUrl: 'https://placehold.co/100x100/fef2f2/ef4444?text=Cola', inStock: true, category: 'Beverages' },
-        ],
-        status: OrderStatus.Preparing,
-        date: '2024-05-22',
-        deliveryAddress: '456 Pine Ln',
-        restaurantAddress: 'Shop 4, Market St',
-        estimatedArrival: '10-15 min',
-        bill: { subtotal: 480, deliveryFee: 50, serviceFee: 10, discount: 0, total: 540 },
-    },
-    {
-        id: 'S-103',
-        customerId: 'cust-sana-j',
-        customerName: 'Sana J.',
-        restaurantName: 'The Corner Store',
-        items: [
-            { cartItemId: 'si-5', id: 'apples', name: 'Apples (1kg)', description: '', price: 300, quantity: 1, imageUrl: 'https://placehold.co/100x100/fef2f2/ef4444?text=Apples', inStock: true, category: 'Produce' },
-        ],
-        status: OrderStatus.ReadyForPickup,
-        date: '2024-05-22',
-        deliveryAddress: '789 Maple Rd',
-        restaurantAddress: 'Shop 4, Market St',
-        estimatedArrival: 'Awaiting rider',
-        bill: { subtotal: 300, deliveryFee: 50, serviceFee: 10, discount: 0, total: 360 },
-        riderInfo: { name: 'Ali Khan', vehicle: 'Motorbike', vehiclePlate: 'KHI-5678', rating: 4.8, avatarUrl: 'https://i.pravatar.cc/150?u=ali' }
-    }
-];
+import { MOCK_SHOP_ORDERS } from '../../data/mockData';
 
 const EmptyOrdersState: React.FC = () => (
     <div className="text-center text-slate-500 dark:text-slate-400 py-16 flex flex-col items-center">

@@ -1,83 +1,10 @@
 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Order, OrderStatus, CartItem } from '../../types';
+import { Order, OrderStatus } from '../../types';
 import Button from '../shared/Button';
 import RateOrderModal from './RateOrderModal';
-
-const MOCK_ITEMS_PIZZA: CartItem[] = [
-    { cartItemId: 'ci-p1', id: 'm3', name: 'Pepperoni Pizza', description: '', price: 14.99, imageUrl: 'https://images.pexels.com/photos/825661/pexels-photo-825661.jpeg?auto=compress&cs=tinysrgb&w=400', inStock: true, category: 'Pizza', quantity: 1, originalPrice: 18.00 }
-];
-const MOCK_ITEMS_BURGER: CartItem[] = [
-    { cartItemId: 'ci-b1', id: 'm-b1', name: 'Classic Burger', description: '', price: 18.50, imageUrl: 'https://images.pexels.com/photos/1639562/pexels-photo-1639562.jpeg?auto=compress&cs=tinysrgb&w=400', inStock: true, category: 'Burgers', quantity: 1 },
-    { cartItemId: 'ci-b2', id: 'm-f1', name: 'Fries', description: '', price: 4.00, imageUrl: 'https://images.pexels.com/photos/1583884/pexels-photo-1583884.jpeg?auto=compress&cs=tinysrgb&w=400', inStock: true, category: 'Sides', quantity: 1 }
-];
-const MOCK_ITEMS_TACO: CartItem[] = [
-    { cartItemId: 'ci-t1', id: 'm-t1', name: 'Tacos', description: '', price: 6.50, imageUrl: 'https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&w=400', inStock: true, category: 'Tacos', quantity: 2 },
-    { cartItemId: 'ci-t2', id: 'm-n1', name: 'Nachos', description: '', price: 2.75, imageUrl: 'https://images.pexels.com/photos/2092916/pexels-photo-2092916.jpeg?auto=compress&cs=tinysrgb&w=400', inStock: true, category: 'Sides', quantity: 1 }
-];
-const MOCK_ITEMS_THAI: CartItem[] = [
-     { cartItemId: 'ci-th1', id: 'm-th1', name: 'Pad Thai', description: '', price: 16.00, imageUrl: 'https://images.pexels.com/photos/723198/pexels-photo-723198.jpeg?auto=compress&cs=tinysrgb&w=400', inStock: true, category: 'Noodles', quantity: 1 }
-];
-
-const MOCK_ORDERS: Order[] = [
-    { 
-        id: 'ORD124', 
-        customerId: 'cust-bob',
-        customerName: 'Bob',
-        restaurantName: 'Burger Barn', 
-        items: MOCK_ITEMS_BURGER, 
-        status: OrderStatus.OutForDelivery,
-        date: '2024-05-21',
-        deliveryAddress: '101 Maple Rd, Flavor Town',
-        restaurantAddress: '789 Pine Ln, Grillville',
-        estimatedArrival: '5-10 min',
-        bill: { subtotal: 22.50, deliveryFee: 2.50, serviceFee: 1.00, discount: 0, total: 26.00 },
-        riderInfo: { name: 'Muhammad', vehicle: 'Motorbike', vehiclePlate: 'KHI-1234', rating: 4.9, avatarUrl: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=300' }
-    },
-    { 
-        id: 'ORD123', 
-        customerId: 'cust-alice',
-        customerName: 'Alice',
-        restaurantName: 'Pizza Palace', 
-        items: MOCK_ITEMS_PIZZA, 
-        status: OrderStatus.Delivered, 
-        date: '2024-05-20',
-        deliveryAddress: '456 Oak Ave, Salsa City',
-        restaurantAddress: '123 Main St, Anytown',
-        estimatedArrival: 'Delivered',
-        bill: { subtotal: 14.99, deliveryFee: 3.00, serviceFee: 1.00, discount: -3.01, total: 15.98 },
-    },
-    { 
-        id: 'ORD125', 
-        customerId: 'cust-charlie',
-        customerName: 'Charlie',
-        restaurantName: 'Taco Town', 
-        items: MOCK_ITEMS_TACO, 
-        status: OrderStatus.Preparing, 
-        date: '2024-05-21',
-        deliveryAddress: '654 Birch Blvd, Flavor Town',
-        restaurantAddress: '789 Fiesta Street, Salsa City',
-        estimatedArrival: '20-25 min',
-        bill: { subtotal: 15.75, deliveryFee: 2.00, serviceFee: 0.50, discount: 0, total: 18.25 },
-    },
-    { 
-        id: 'ORD126', 
-        customerId: 'cust-dana',
-        customerName: 'Dana',
-        restaurantName: 'The Golden Spoon', 
-        items: MOCK_ITEMS_THAI, 
-        status: OrderStatus.Cancelled, 
-        date: '2024-05-19',
-        deliveryAddress: '888 Wok St, Noodle City',
-        restaurantAddress: '456 Noodle Way, Flavor Town',
-        estimatedArrival: 'Cancelled',
-        bill: { subtotal: 16.00, deliveryFee: 2.00, serviceFee: 0.50, discount: 0, total: 18.50 },
-    },
-];
-
-export const getMockOrderById = (id: string) => MOCK_ORDERS.find(o => o.id === id);
-
+import { MOCK_ORDERS } from '../../data/mockData';
 
 const statusStyles: { [key in OrderStatus]: string } = {
     [OrderStatus.Delivered]: 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300',

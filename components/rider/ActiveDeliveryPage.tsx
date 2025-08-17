@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { getMockDeliveryById } from './RiderDeliveries';
+import { getMockDeliveryById } from '../../data/mockData';
 import Button from '../shared/Button';
 import { ICONS } from '../../constants';
 import ChatModal from '../shared/ChatModal';

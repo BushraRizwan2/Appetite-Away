@@ -3,55 +3,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { DeliveryRequest } from '../../types';
 import TabFilter from '../shared/TabFilter';
-
-const MOCK_DELIVERIES: DeliveryRequest[] = [
-    { 
-        id: 'D1', 
-        orderId: 'ORD124',
-        restaurantName: 'Burger Barn', 
-        restaurantAddress: '789 Pine Ln', 
-        customerName: 'Bob',
-        customerAddress: '101 Maple Rd', 
-        payout: 7.50, 
-        distance: 2.5, 
-        status: 'Active',
-        items: [
-            { name: 'Classic Burger', quantity: 1 },
-            { name: 'Fries', quantity: 1 },
-        ]
-    },
-    { 
-        id: 'D4', 
-        orderId: 'ORD123',
-        restaurantName: 'Pizza Palace', 
-        restaurantAddress: '123 Main St', 
-        customerName: 'Alice',
-        customerAddress: '456 Oak Ave', 
-        payout: 8.10, 
-        distance: 3.2, 
-        status: 'Completed',
-        items: [
-            { name: 'Pepperoni Pizza', quantity: 1 },
-        ]
-    },
-    { 
-        id: 'D5', 
-        orderId: 'ORD126',
-        restaurantName: 'The Golden Spoon',
-        restaurantAddress: '456 Noodle Way', 
-        customerName: 'Eve',
-        customerAddress: '321 Wok St', 
-        payout: 6.00, 
-        distance: 1.8, 
-        status: 'Completed',
-        items: [
-            { name: 'Pad Thai', quantity: 1 },
-        ]
-    },
-];
-
-export const getMockDeliveryById = (id: string) => MOCK_DELIVERIES.find(d => d.id === id);
-
+import { MOCK_DELIVERIES } from '../../data/mockData';
 
 const DeliveryCard: React.FC<{ delivery: DeliveryRequest }> = ({ delivery }) => {
     const navigate = useNavigate();

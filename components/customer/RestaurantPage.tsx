@@ -1,7 +1,7 @@
 
 import React, { useState, useMemo, useRef, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import { getMockRestaurantById } from './CustomerDashboard';
+import { getMockRestaurantById } from '../../data/mockData';
 import { MenuItem } from '../../types';
 import Button from '../shared/Button';
 import { useCart } from '../../hooks/useCart';

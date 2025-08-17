@@ -1,46 +1,7 @@
 import React, { useState } from 'react';
-import { DeliveryRequest } from '../../types';
 import Button from '../shared/Button';
 import DeliveryRequestCard from './DeliveryRequestCard';
-
-const MOCK_REQUESTS: DeliveryRequest[] = [
-    { 
-        id: 'D1', 
-        orderId: 'ORD-P1', 
-        restaurantName: 'Pizza Palace', 
-        restaurantAddress: '123 Main St', 
-        customerName: 'Alice', 
-        customerAddress: '456 Oak Ave', 
-        payout: 7.50, 
-        distance: 2.5,
-        items: [{ name: 'Pepperoni Pizza', quantity: 1 }],
-        status: 'Pending'
-    },
-    { 
-        id: 'D2', 
-        orderId: 'ORD-B1',
-        restaurantName: 'Burger Barn', 
-        restaurantAddress: '789 Pine Ln', 
-        customerName: 'Bob',
-        customerAddress: '101 Maple Rd', 
-        payout: 6.00, 
-        distance: 1.8,
-        items: [{ name: 'Classic Burger', quantity: 1 }, { name: 'Fries', quantity: 1 }],
-        status: 'Pending'
-    },
-    { 
-        id: 'D3', 
-        orderId: 'ORD-T1',
-        restaurantName: 'Taco Town', 
-        restaurantAddress: '321 Elm Ct', 
-        customerName: 'Charlie',
-        customerAddress: '654 Birch Blvd', 
-        payout: 9.25, 
-        distance: 4.1,
-        items: [{ name: 'Beef Tacos', quantity: 2 }],
-        status: 'Pending'
-    },
-];
+import { MOCK_DELIVERY_REQUESTS } from '../../data/mockData';
 
 const SummaryCard: React.FC<{ title: string; value: string; }> = ({ title, value }) => (
     <div className="text-center">
@@ -93,7 +54,7 @@ const RiderDashboard: React.FC = () => {
                 </h3>
                 <div className="space-y-4">
                     {isOnline ? (
-                        MOCK_REQUESTS.map(req => <DeliveryRequestCard key={req.id} request={req} />)
+                        MOCK_DELIVERY_REQUESTS.map(req => <DeliveryRequestCard key={req.id} request={req} />)
                     ) : (
                         <p className="text-center text-slate-500 dark:text-slate-400 py-8">Go online to see requests.</p>
                     )}
