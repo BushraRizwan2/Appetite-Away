@@ -1,21 +1,21 @@
 
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { useAuth } from './hooks/useAuth';
-import LoginModal from './components/auth/LoginModal';
-import SignupModal from './components/auth/SignupModal';
-import CustomerApp from './components/customer/CustomerApp';
-import RestaurantApp from './components/restaurant/RestaurantApp';
-import RiderApp from './components/rider/RiderApp';
-import ShopkeeperApp from './components/shopkeeper/ShopkeeperApp';
-import AdminApp from './components/admin/AdminApp';
-import { UserRole } from './types';
-import Spinner from './components/shared/Spinner';
-import ConfirmationScreen from './components/auth/ConfirmationScreen';
-import SplashScreen from './components/shared/SplashScreen';
-import LandingPage from './components/landing/LandingPage';
-import ScrumptiousStoriesPage from './components/stories/ScrumptiousStoriesPage';
-import StoryDetailPage from './components/stories/StoryDetailPage';
+import { useAuth } from './hooks/useAuth.ts';
+import LoginModal from './components/auth/LoginModal.tsx';
+import SignupModal from './components/auth/SignupModal.tsx';
+import CustomerApp from './components/customer/CustomerApp.tsx';
+import RestaurantApp from './components/restaurant/RestaurantApp.tsx';
+import RiderApp from './components/rider/RiderApp.tsx';
+import ShopkeeperApp from './components/shopkeeper/ShopkeeperApp.tsx';
+import AdminApp from './components/admin/AdminApp.tsx';
+import { UserRole } from './types.ts';
+import Spinner from './components/shared/Spinner.tsx';
+import ConfirmationScreen from './components/auth/ConfirmationScreen.tsx';
+import SplashScreen from './components/shared/SplashScreen.tsx';
+import LandingPage from './components/landing/LandingPage.tsx';
+import ScrumptiousStoriesPage from './components/stories/ScrumptiousStoriesPage.tsx';
+import StoryDetailPage from './components/stories/StoryDetailPage.tsx';
 
 // --- LAYOUTS & SHARED COMPONENTS ---
 

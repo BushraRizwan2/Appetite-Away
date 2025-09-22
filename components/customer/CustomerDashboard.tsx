@@ -119,7 +119,7 @@ const CustomerDashboard: React.FC = () => {
         restaurants = restaurants.filter((r: Restaurant) => r.hasDeals);
     }
     if (filters.cuisines.length > 0) {
-        restaurants = restaurants.filter((r: Restaurant) => r.tags.some(tag => filters.cuisines.includes(tag)));
+        restaurants = restaurants.filter((r: Restaurant) => r.tags.some((tag: string) => filters.cuisines.includes(tag)));
     }
     
     // Sorting
@@ -190,7 +190,7 @@ const CustomerDashboard: React.FC = () => {
             <GeminiMealHelper />
 
             <ScrollableSection title="Pick up where you left off" subtitle="Based on your recent activity">
-                {orderAgainRestaurants.map(r => (
+                {orderAgainRestaurants.map((r: Restaurant) => (
                     <div key={r.id} className="w-64 flex-shrink-0">
                         <Link to={`/customer/restaurants/${r.id}`}>
                             <RestaurantCard restaurant={r} />
