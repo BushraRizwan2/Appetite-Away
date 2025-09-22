@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import Modal from '../shared/Modal';
-import Button from '../shared/Button';
-import { Transaction, CartItem } from '../../types';
-import RefundModal from './RefundModal';
+import Modal from '../shared/Modal.tsx';
+import Button from '../shared/Button.tsx';
+import { Transaction } from '../../types.ts';
+import RefundModal from './RefundModal.tsx';
 
 interface TransactionDetailsModalProps {
     onClose: () => void;

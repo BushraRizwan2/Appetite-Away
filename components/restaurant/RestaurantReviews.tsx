@@ -1,10 +1,11 @@
 
+
 import React, { useState } from 'react';
-import { Review } from '../../types';
-import Button from '../shared/Button';
-import { ICONS } from '../../constants';
-import Modal from '../shared/Modal';
-import TabFilter from '../shared/TabFilter';
+import { Review } from '../../types.ts';
+import Button from '../shared/Button.tsx';
+import { ICONS } from '../../constants.tsx';
+import Modal from '../shared/Modal.tsx';
+import TabFilter from '../shared/TabFilter.tsx';
 
 const MOCK_REVIEWS: Review[] = [
     { id: 'rev1', author: 'Ayesha K.', rating: 5, comment: 'Absolutely delicious! The food was hot and fresh. The Pepperoni Pizza was the best I\'ve had in a long time. Will definitely order again.', timestamp: '2 days ago' },
@@ -67,7 +68,7 @@ const ReviewCard: React.FC<{ review: Review, onReply: (review: Review) => void }
 };
 
 const RestaurantReviews: React.FC = () => {
-    const [reviews, setReviews] = useState(MOCK_REVIEWS);
+    const [reviews] = useState(MOCK_REVIEWS);
     const [replyingTo, setReplyingTo] = useState<Review | null>(null);
     const [filter, setFilter] = useState('All');
 

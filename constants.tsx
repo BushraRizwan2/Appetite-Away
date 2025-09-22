@@ -1,5 +1,4 @@
-import React from 'react';
-import { UserRole, Chef } from './types';
+import { UserRole } from './types.ts';
 
 export const APP_NAME = 'Appetite Away';
 

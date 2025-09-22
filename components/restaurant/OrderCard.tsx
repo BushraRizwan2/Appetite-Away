@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { Order, OrderStatus } from '../../types';
-import Button from '../shared/Button';
-import Modal from '../shared/Modal';
-import { ICONS } from '../../constants';
-import ChatModal from '../shared/ChatModal';
+import React, { useState } from 'react';
+import { Order, OrderStatus } from '../../types.ts';
+import Button from '../shared/Button.tsx';
+import Modal from '../shared/Modal.tsx';
+import { ICONS } from '../../constants.tsx';
+import ChatModal from '../shared/ChatModal.tsx';
 
 interface OrderCardProps {
   order: Order;

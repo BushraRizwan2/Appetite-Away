@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
-import { User, Order, OrderStatus } from '../../types';
-import { mockOrders } from './mockOrders';
-import { ICONS } from '../../constants';
+import { User, OrderStatus } from '../../types.ts';
+import { mockOrders } from './mockOrders.ts';
+import { ICONS } from '../../constants.tsx';
 
 interface UserDetailsModalProps {
     isOpen: boolean;

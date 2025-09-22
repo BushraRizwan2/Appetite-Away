@@ -1,9 +1,8 @@
 
 import React, { useState, useMemo } from 'react';
-import { Restaurant, Review, MenuItem } from '../../types';
-import { ICONS } from '../../constants';
-import Button from '../shared/Button';
-import { useCart } from '../../hooks/useCart';
+import { Restaurant, Review, MenuItem } from '../../types.ts';
+import { ICONS } from '../../constants.tsx';
+import { useCart } from '../../hooks/useCart.ts';
 
 interface ReviewsModalProps {
     isOpen: boolean;

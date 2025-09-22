@@ -1,13 +1,14 @@
 import React, { useState, useMemo, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import RestaurantCard from './RestaurantCard';
-import { ICONS } from '../../constants';
-import FilterSidebar, { Filters } from './FilterSidebar';
-import Modal from '../shared/Modal';
-import Button from '../shared/Button';
-import { useAuth } from '../../hooks/useAuth';
-import GeminiMealHelper from './GeminiMealHelper';
-import { getMockRestaurants, getMockCuisines } from '../../data/mockData';
+import RestaurantCard from './RestaurantCard.tsx';
+import { ICONS } from '../../constants.tsx';
+import FilterSidebar, { Filters } from './FilterSidebar.tsx';
+import Modal from '../shared/Modal.tsx';
+import Button from '../shared/Button.tsx';
+import { useAuth } from '../../hooks/useAuth.ts';
+import GeminiMealHelper from './GeminiMealHelper.tsx';
+import { getMockRestaurants, getMockCuisines } from '../../data/mockData.ts';
+import { Restaurant } from '../../types.ts';
 
 
 // --- COMPONENTS ---
@@ -97,37 +98,37 @@ const CustomerDashboard: React.FC = () => {
     
     // Search query filter
     if (searchQuery) {
-        restaurants = restaurants.filter(r => 
+        restaurants = restaurants.filter((r: Restaurant) => 
             r.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
             r.cuisine.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            r.tags.some(t => t.toLowerCase().includes(searchQuery.toLowerCase()))
+            r.tags.some((t: string) => t.toLowerCase().includes(searchQuery.toLowerCase()))
         );
     }
     
     // Filter sidebar filters
     if (filters.quickFilters.includes('Ratings 4+')) {
-        restaurants = restaurants.filter(r => r.rating >= 4);
+        restaurants = restaurants.filter((r: Restaurant) => r.rating >= 4);
     }
     if (filters.offers.includes('Free delivery')) {
-        restaurants = restaurants.filter(r => r.hasFreeDelivery);
+        restaurants = restaurants.filter((r: Restaurant) => r.hasFreeDelivery);
     }
     if (filters.offers.includes('Accepts vouchers')) {
-        restaurants = restaurants.filter(r => r.acceptsVouchers);
+        restaurants = restaurants.filter((r: Restaurant) => r.acceptsVouchers);
     }
     if (filters.offers.includes('Deals')) {
-        restaurants = restaurants.filter(r => r.hasDeals);
+        restaurants = restaurants.filter((r: Restaurant) => r.hasDeals);
     }
     if (filters.cuisines.length > 0) {
-        restaurants = restaurants.filter(r => r.tags.some(tag => filters.cuisines.includes(tag)));
+        restaurants = restaurants.filter((r: Restaurant) => r.tags.some(tag => filters.cuisines.includes(tag)));
     }
     
     // Sorting
     switch (filters.sortBy) {
         case 'Fastest delivery':
-            restaurants.sort((a, b) => parseInt(a.deliveryTime) - parseInt(b.deliveryTime));
+            restaurants.sort((a: Restaurant, b: Restaurant) => parseInt(a.deliveryTime) - parseInt(b.deliveryTime));
             break;
         case 'Top rated':
-            restaurants.sort((a, b) => b.rating - a.rating);
+            restaurants.sort((a: Restaurant, b: Restaurant) => b.rating - a.rating);
             break;
         case 'Relevance':
         default:
@@ -201,7 +202,7 @@ const CustomerDashboard: React.FC = () => {
             <div>
                 <h2 className="text-lg sm:text-xl font-bold text-slate-800 dark:text-slate-200 py-6">All Restaurants</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {filteredRestaurants.map(restaurant => (
+                    {filteredRestaurants.map((restaurant: Restaurant) => (
                         <Link to={`/customer/restaurants/${restaurant.id}`} key={restaurant.id}>
                             <RestaurantCard restaurant={restaurant} />
                         </Link>

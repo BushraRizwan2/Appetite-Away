@@ -1,17 +1,16 @@
 
 
 import React, { useState, useMemo } from 'react';
-import { Link } from 'react-router-dom';
-import StickyHeader from '../landing/StickyHeader';
-import Footer from '../shared/Footer';
-import StoryCard from './StoryCard';
-import ShareStoryModal from './ShareStoryModal';
-import { mockStories } from './mockStories';
-import { UserRole } from '../../types';
-import Button from '../shared/Button';
-import { ICONS } from '../../constants';
-import DownloadAppSection from '../landing/DownloadAppSection';
-import Icon from '../shared/Icon';
+import StickyHeader from '../landing/StickyHeader.tsx';
+import Footer from '../shared/Footer.tsx';
+import StoryCard from './StoryCard.tsx';
+import ShareStoryModal from './ShareStoryModal.tsx';
+import { mockStories } from './mockStories.ts';
+import { UserRole } from '../../types.ts';
+import Button from '../shared/Button.tsx';
+import { ICONS } from '../../constants.tsx';
+import DownloadAppSection from '../landing/DownloadAppSection.tsx';
+import Icon from '../shared/Icon.tsx';
 
 interface ScrumptiousStoriesPageProps {
   openModal: (type: 'login' | 'signup', role?: UserRole) => void;

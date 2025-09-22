@@ -2,16 +2,16 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { useAuth } from '../../hooks/useAuth';
-import { ROLES, ICONS } from '../../constants';
-import { UserRole, User } from '../../types';
-import Button from '../shared/Button';
-import Input from '../shared/Input';
-import Spinner from '../shared/Spinner';
-import PhoneNumberInput from './PhoneNumberInput';
-import Accordion from '../shared/Accordion';
-import Modal from '../shared/Modal';
-import CustomSelect from '../shared/CustomSelect';
+import { useAuth } from '../../hooks/useAuth.ts';
+import { ROLES, ICONS } from '../../constants.tsx';
+import { UserRole, User } from '../../types.ts';
+import Button from '../shared/Button.tsx';
+import Input from '../shared/Input.tsx';
+import Spinner from '../shared/Spinner.tsx';
+import PhoneNumberInput from './PhoneNumberInput.tsx';
+import Accordion from '../shared/Accordion.tsx';
+import Modal from '../shared/Modal.tsx';
+import CustomSelect from '../shared/CustomSelect.tsx';
 
 interface SignupModalProps {
   onClose: () => void;
@@ -50,9 +50,7 @@ const SignupModal: React.FC<SignupModalProps> = ({ onClose, onSwitchToLogin, ini
   const [taxId, setTaxId] = useState('');
   const [bankDetails, setBankDetails] = useState('');
   
-  const formRef = useRef<HTMLFormElement>(null);
   const scrollableContentRef = useRef<HTMLDivElement>(null);
-  const [isInteractingWithForm, setIsInteractingWithForm] = useState(false);
 
   // Gesture handling state
   const [touchStartY, setTouchStartY] = useState<number | null>(null);
@@ -61,19 +59,6 @@ const SignupModal: React.FC<SignupModalProps> = ({ onClose, onSwitchToLogin, ini
   const emailRegex = /^[^@\s]+@[^@\s]+\.[a-zA-Z]{2,3}$/;
   const formId = `auth-form-signup`;
   
-  useEffect(() => {
-    const form = formRef.current;
-    if (!form) return;
-    const handleFocus = () => setIsInteractingWithForm(true);
-    const handleBlur = () => setIsInteractingWithForm(false);
-    form.addEventListener('focusin', handleFocus);
-    form.addEventListener('focusout', handleBlur);
-    return () => {
-      form.removeEventListener('focusin', handleFocus);
-      form.removeEventListener('focusout', handleBlur);
-    };
-  }, []);
-
   useEffect(() => {
     // Reset fields when role changes
     setEmail('');
@@ -324,7 +309,6 @@ const SignupModal: React.FC<SignupModalProps> = ({ onClose, onSwitchToLogin, ini
             onTouchEnd={handleContentTouchEnd}
         >
             <form
-                ref={formRef}
                 id={formId}
                 onSubmit={handleSignup}
                 className="space-y-4"

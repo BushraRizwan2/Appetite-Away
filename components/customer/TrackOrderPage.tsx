@@ -1,12 +1,12 @@
 
+
 import React, { useState, useMemo } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { getMockOrderById } from '../../data/mockData';
-import { OrderStatus } from '../../types';
-import Button from '../shared/Button';
-import { ICONS } from '../../constants';
-import ChatModal from '../shared/ChatModal';
-import Spinner from '../shared/Spinner';
+import { getMockOrderById } from '../../data/mockData.ts';
+import { OrderStatus } from '../../types.ts';
+import Button from '../shared/Button.tsx';
+import { ICONS } from '../../constants.tsx';
+import ChatModal from '../shared/ChatModal.tsx';
 
 const statusTimeline = [
     { status: OrderStatus.Preparing, label: "Order is being prepared", icon: "🍳" },

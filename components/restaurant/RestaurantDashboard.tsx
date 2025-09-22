@@ -1,12 +1,13 @@
 
-import React, { useState, useEffect } from 'react';
-import { Order, OrderStatus, Review } from '../../types';
-import OrderCard from './OrderCard';
-import Button from '../shared/Button';
-import { ICONS } from '../../constants';
+
+import React, { useState } from 'react';
+import { Order, OrderStatus } from '../../types.ts';
+import OrderCard from './OrderCard.tsx';
+import Button from '../shared/Button.tsx';
+import { ICONS } from '../../constants.tsx';
 import { Link } from 'react-router-dom';
-import ChartPlaceholder from '../shared/ChartPlaceholder';
-import { MOCK_RESTAURANT_ORDERS, MOCK_REVIEWS_SUMMARY } from '../../data/mockData';
+import ChartPlaceholder from '../shared/ChartPlaceholder.tsx';
+import { MOCK_RESTAURANT_ORDERS, MOCK_REVIEWS_SUMMARY } from '../../data/mockData.ts';
 
 const MetricCard: React.FC<{ title: string; value: string; icon: React.ReactNode; }> = ({ title, value, icon }) => (
     <div className="p-4 bg-white dark:bg-slate-800 rounded-lg shadow-sm flex items-center gap-4 transition-transform duration-300 hover:scale-105 cursor-pointer">

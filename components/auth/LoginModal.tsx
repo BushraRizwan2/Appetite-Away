@@ -1,14 +1,14 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { useAuth } from '../../hooks/useAuth';
-import { ALL_ROLES_FOR_DEMO_LOGIN, DEMO_USERS, ICONS } from '../../constants';
-import { UserRole } from '../../types';
-import Button from '../shared/Button';
-import Input from '../shared/Input';
-import Spinner from '../shared/Spinner';
-import Modal from '../shared/Modal';
-import CustomSelect from '../shared/CustomSelect';
+import { useAuth } from '../../hooks/useAuth.ts';
+import { ALL_ROLES_FOR_DEMO_LOGIN, DEMO_USERS, ICONS } from '../../constants.tsx';
+import { UserRole } from '../../types.ts';
+import Button from '../shared/Button.tsx';
+import Input from '../shared/Input.tsx';
+import Spinner from '../shared/Spinner.tsx';
+import Modal from '../shared/Modal.tsx';
+import CustomSelect from '../shared/CustomSelect.tsx';
 
 interface LoginModalProps {
   onClose: () => void;
@@ -25,27 +25,12 @@ const LoginModal: React.FC<LoginModalProps> = ({ onClose, onSwitchToSignup, init
   const { login, loading } = useAuth();
   
   const formId = `auth-form-${authStep}`;
-  const formRef = useRef<HTMLFormElement>(null);
   const scrollableContentRef = useRef<HTMLDivElement>(null);
-  const [isInteractingWithForm, setIsInteractingWithForm] = useState(false);
 
   // Gesture handling state
   const [touchStartY, setTouchStartY] = useState<number | null>(null);
   const swipeDistanceThreshold = 50; // pixels
   
-  useEffect(() => {
-    const form = formRef.current;
-    if (!form) return;
-    const handleFocus = () => setIsInteractingWithForm(true);
-    const handleBlur = () => setIsInteractingWithForm(false);
-    form.addEventListener('focusin', handleFocus);
-    form.addEventListener('focusout', handleBlur);
-    return () => {
-      form.removeEventListener('focusin', handleFocus);
-      form.removeEventListener('focusout', handleBlur);
-    };
-  }, []);
-
   useEffect(() => {
     if (authStep === 'login') {
       const demoUser = DEMO_USERS[selectedRole];
@@ -194,7 +179,6 @@ const LoginModal: React.FC<LoginModalProps> = ({ onClose, onSwitchToSignup, init
             onTouchEnd={handleContentTouchEnd}
         >
             <form
-                ref={formRef}
                 id={formId}
                 onSubmit={authStep === 'login' ? handleLogin : handleForgotPassword}
                 className="space-y-4"
