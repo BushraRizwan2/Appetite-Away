@@ -1,13 +1,15 @@
 import { GoogleGenAI } from "@google/genai";
 
-if (!process.env.API_KEY) {
+const apiKey = process.env.API_KEY;
+
+if (!apiKey) {
   console.warn("API_KEY environment variable not set. Gemini features will not work.");
 }
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY! });
+const ai = new GoogleGenAI({ apiKey: apiKey! });
 
 export const getMealSuggestion = async (prompt: string): Promise<string> => {
-  if (!process.env.API_KEY) {
+  if (!apiKey) {
     return "API Key not configured. Please set the API_KEY environment variable.";
   }
   try {
@@ -27,7 +29,7 @@ export const getMealSuggestion = async (prompt: string): Promise<string> => {
 };
 
 export const generateMenuItemDescription = async (name: string, category: string): Promise<string> => {
-  if (!process.env.API_KEY) {
+  if (!apiKey) {
     return "API Key not configured.";
   }
   try {

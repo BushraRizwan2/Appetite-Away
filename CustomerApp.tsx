@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Routes, Route, Navigate, Link, Outlet } from 'react-router-dom';
-import CustomerDashboard from './CustomerDashboard';
+import CustomerDashboard, { INITIAL_FILTERS } from './CustomerDashboard';
 import RestaurantPage from './RestaurantPage';
 import CustomerOrders from './CustomerOrders';
 import CustomerProfile from './CustomerProfile';
