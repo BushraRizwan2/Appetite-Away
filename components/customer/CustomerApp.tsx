@@ -1,24 +1,25 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 import { Routes, Route, Navigate, Link, Outlet } from 'react-router-dom';
-import CustomerDashboard from './CustomerDashboard.tsx';
-import RestaurantPage from './RestaurantPage.tsx';
-import CustomerOrders from './CustomerOrders.tsx';
-import CustomerProfile from './CustomerProfile.tsx';
-import TrackOrderPage from './TrackOrderPage.tsx';
-import { APP_NAME, ICONS } from '../../constants.tsx';
-import { useAuth } from '../../hooks/useAuth.ts';
-import MyDetails from './profile/MyDetails.tsx';
-import AddressBook from './profile/AddressBook.tsx';
-import PaymentMethods from './profile/PaymentMethods.tsx';
-import Vouchers from './profile/Vouchers.tsx';
-import HelpCenter from './profile/HelpCenter.tsx';
-import Footer from '../shared/Footer.tsx';
-import AddressSearch from './AddressSearch.tsx';
-import LocationModal from './LocationModal.tsx';
-import CheckoutConfirmation from './CheckoutConfirmation.tsx';
-import BottomNav from '../shared/BottomNav.tsx';
-import CartIcon from './CartIcon.tsx';
-import CartModal from './CartModal.tsx';
+import CustomerDashboard from './CustomerDashboard';
+import RestaurantPage from './RestaurantPage';
+import CustomerOrders from './CustomerOrders';
+import CustomerProfile from './CustomerProfile';
+import TrackOrderPage from './TrackOrderPage';
+import { APP_NAME, ICONS } from '../../constants';
+import { useAuth } from '../../hooks/useAuth';
+import MyDetails from './profile/MyDetails';
+import AddressBook from './profile/AddressBook';
+import PaymentMethods from './profile/PaymentMethods';
+import Vouchers from './profile/Vouchers';
+import HelpCenter from './profile/HelpCenter';
+import Footer from '../shared/Footer';
+import AddressSearch from './AddressSearch';
+import LocationModal from './LocationModal';
+import CheckoutConfirmation from './CheckoutConfirmation';
+import BottomNav from '../shared/BottomNav';
+import CartIcon from './CartIcon';
+import CartModal from './CartModal';
 
 const CustomerLayout: React.FC = () => {
     const { user, logout } = useAuth();

@@ -1,14 +1,15 @@
+
 import React, { useState, useMemo, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import RestaurantCard from './RestaurantCard.tsx';
-import { ICONS } from '../../constants.tsx';
-import FilterSidebar, { Filters } from './FilterSidebar.tsx';
-import Modal from '../shared/Modal.tsx';
-import Button from '../shared/Button.tsx';
-import { useAuth } from '../../hooks/useAuth.ts';
-import GeminiMealHelper from './GeminiMealHelper.tsx';
-import { getMockRestaurants, getMockCuisines } from '../../data/mockData.ts';
-import { Restaurant } from '../../types.ts';
+import RestaurantCard from './RestaurantCard';
+import { ICONS } from '../../constants';
+import FilterSidebar, { Filters } from './FilterSidebar';
+import Modal from '../shared/Modal';
+import Button from '../shared/Button';
+import { useAuth } from '../../hooks/useAuth';
+import GeminiMealHelper from './GeminiMealHelper';
+import { getMockRestaurants, getMockCuisines } from '../../data/mockData';
+import { Restaurant } from '../../types';
 
 
 // --- COMPONENTS ---
@@ -79,7 +80,7 @@ const QuickActionCard: React.FC<{ label: string; icon: React.ReactNode; to: stri
 
 
 const ALL_CUISINES = getMockCuisines();
-export const INITIAL_FILTERS: Filters = {
+const INITIAL_FILTERS: Filters = {
     sortBy: 'Relevance',
     quickFilters: [],
     offers: [],
