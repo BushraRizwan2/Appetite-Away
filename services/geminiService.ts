@@ -1,15 +1,16 @@
+
 import { GoogleGenAI } from "@google/genai";
 
 const apiKey = process.env.API_KEY;
 
-if (!apiKey) {
-  console.warn("API_KEY environment variable not set. Gemini features will not work.");
+const ai = apiKey ? new GoogleGenAI({ apiKey }) : null;
+
+if (!ai) {
+  console.warn("Gemini API key not found or invalid. AI features will be disabled.");
 }
 
-const ai = new GoogleGenAI({ apiKey: apiKey! });
-
 export const getMealSuggestion = async (prompt: string): Promise<string> => {
-  if (!apiKey) {
+  if (!ai) {
     return "API Key not configured. Please set the API_KEY environment variable.";
   }
   try {
@@ -21,7 +22,7 @@ export const getMealSuggestion = async (prompt: string): Promise<string> => {
             maxOutputTokens: 20,
         }
     });
-    return response.text?.trim() ?? "Could not get a suggestion at this time.";
+    return response.text.trim();
   } catch (error) {
     console.error("Error getting meal suggestion from Gemini:", error);
     return "Could not get a suggestion at this time.";
@@ -29,7 +30,7 @@ export const getMealSuggestion = async (prompt: string): Promise<string> => {
 };
 
 export const generateMenuItemDescription = async (name: string, category: string): Promise<string> => {
-  if (!apiKey) {
+  if (!ai) {
     return "API Key not configured.";
   }
   try {
@@ -43,7 +44,7 @@ export const generateMenuItemDescription = async (name: string, category: string
         }
     });
     // Clean up the response by trimming whitespace and removing potential quotation marks
-    return response.text?.trim().replace(/^"|"$/g, '') ?? "Could not generate a description at this time.";
+    return response.text.trim().replace(/^"|"$/g, '');
   } catch (error) {
     console.error("Error generating menu description from Gemini:", error);
     return "Could not generate a description at this time.";
