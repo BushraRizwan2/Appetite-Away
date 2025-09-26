@@ -22,7 +22,7 @@ export const getMealSuggestion = async (prompt: string): Promise<string> => {
             maxOutputTokens: 20,
         }
     });
-    return response.text.trim();
+    return response.text?.trim() ?? "Could not get a suggestion at this time.";
   } catch (error) {
     console.error("Error getting meal suggestion from Gemini:", error);
     return "Could not get a suggestion at this time.";
@@ -44,7 +44,7 @@ export const generateMenuItemDescription = async (name: string, category: string
         }
     });
     // Clean up the response by trimming whitespace and removing potential quotation marks
-    return response.text.trim().replace(/^"|"$/g, '');
+    return response.text?.trim().replace(/^"|"$/g, '') ?? "Could not generate a description at this time.";
   } catch (error) {
     console.error("Error generating menu description from Gemini:", error);
     return "Could not generate a description at this time.";
